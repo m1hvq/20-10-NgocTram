@@ -224,7 +224,7 @@
       "Át",
       "A",
       "Khởi đầu",
-      "Một khởi đầu mới đầy hứa hẹn đang đến với {t} của Trâm. Cứ đón lấy bằng sự cởi mở, mình tin Trâm làm được.",
+      "Một khởi đầu mới đầy hứa hẹn đang đến với {t} của Trâm. Cứ đón lấy bằng sự cởi mở.",
     ],
     [
       "Two",
@@ -619,7 +619,7 @@
     picked = order[i];
     cards[i].classList.add("picked");
     deck.classList.add("locked");
-    hint.textContent = "Lá bài của Trâm đã được chọn rồi nè ✨";
+    hint.textContent = "Lá bài Trâm chọn";
     openView(CARDS[picked], cards[i].getBoundingClientRect(), true);
   }
 

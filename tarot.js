@@ -66,7 +66,7 @@
       "Cỗ xe",
       "Quyết tâm · Chiến thắng · Tiến lên",
       "🎠",
-      "Quyết tâm của Trâm sẽ đưa Trâm tới đích. Giữ nhịp thật đều, giữ đầu óc thật bình tĩnh, chiến thắng đang ở gần hơn Trâm tưởng. Cứ chạy tiếp nha, mình đứng ở vạch đích chờ.",
+      "Quyết tâm của Trâm sẽ đưa Trâm tới đích. Giữ nhịp thật đều, giữ đầu óc thật bình tĩnh, chiến thắng đang ở gần hơn Trâm tưởng. Cứ tiếp tục nha.",
     ],
     [
       "Strength",
@@ -122,7 +122,7 @@
       "Ác quỷ",
       "Ràng buộc · Cám dỗ · Tự do",
       "⛓️",
-      "Có thứ gì đó đang níu Trâm lại, có thể là nỗi lo, là áp lực hay một thói quen khó bỏ. Nhưng sợi xích ấy lỏng hơn Trâm tưởng, và Trâm hoàn toàn có thể tự tháo ra. Mình tin vậy.",
+      "Có thứ gì đó đang níu Trâm lại, có thể là nỗi lo, là áp lực hay một thói quen khó bỏ. Nhưng sợi xích ấy lỏng hơn Trâm tưởng, và Trâm hoàn toàn có thể tự tháo ra.",
     ],
     [
       "The Tower",
@@ -136,7 +136,7 @@
       "Ngôi sao",
       "Hy vọng · Chữa lành · Ước mơ",
       "⭐",
-      "Hy vọng đang lấp lánh ngay trên đầu Trâm. Mọi điều Trâm ước đều có thể thành thật, cứ giữ niềm tin và tiếp tục tỏa sáng nha. Với mình, Trâm vốn đã là một vì sao rồi.",
+      "Hy vọng đang lấp lánh ngay trên đầu Trâm. Mọi điều Trâm ước đều có thể thành thật, cứ giữ niềm tin và tiếp tục tỏa sáng nha.",
     ],
     [
       "The Moon",
@@ -619,7 +619,7 @@
     picked = order[i];
     cards[i].classList.add("picked");
     deck.classList.add("locked");
-    hint.textContent = "Lá bài Trâm chọn";
+    hint.textContent = "";
     openView(CARDS[picked], cards[i].getBoundingClientRect(), true);
   }
 

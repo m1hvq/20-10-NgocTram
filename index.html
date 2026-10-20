@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>20/10 NgocTram</title>
+    <meta name="theme-color" content="#fdeef3" />
+    <meta name="color-scheme" content="light" />
+    <!-- kết nối sớm tới nơi lấy font, và tải trước vài ảnh nhỏ của trang loading để hiện ngay -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="img/bg/load2-ging.webp" />
+    <link rel="preload" as="image" href="img/bg/load2-top.webp" />
+    <link rel="preload" as="image" href="img/bg/load2-bot.webp" />
+    <link rel="preload" as="image" href="img/icon-loadcat.webp" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- 4 font gộp thành 1 yêu cầu, tải không chặn việc hiện trang (font về tới đâu thì đổi tới đó) -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Pacifico&family=Patrick+Hand&family=Silkscreen:wght@400;700&display=swap"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Pacifico&family=Patrick+Hand&family=Silkscreen:wght@400;700&display=swap"
+    /></noscript>
+    <!-- script nạp song song với việc đọc trang, vẫn chạy đúng thứ tự -->
+    <script defer src="script.js"></script>
+    <script defer src="tarot.js"></script>
+    <script defer src="pages.js"></script>
+    <script defer src="fireworks.js"></script>
+    <script defer src="end.js"></script>
+    <script defer src="effects.js"></script>
+    <script defer src="loader.js"></script>
+    <link rel="icon" href="img/socute.webp" />
+  </head>
+  <body>
+    <!-- ================= TRANG LOADING (hiện khi mới vào trang, 3 giây) ================= -->
+    <div
+      class="loader"
+      id="loader"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <div class="ld-stage" aria-hidden="true">
+        <div class="ld-top"></div>
+        <div class="ld-bot"></div>
+      </div>
+      <div class="ld-box">
+        <div class="ld-bar" aria-hidden="true">
+          <div class="ld-track"><div class="ld-fill"></div></div>
+          <img
+            decoding="async"
+            class="ld-cat"
+            src="img/icon-loadcat.webp"
+            alt=""
+            draggable="false"
+          />
+        </div>
+        <p class="ld-text" id="ldText">
+          Loading<span class="ld-dots" aria-hidden="true"
+            ><i>.</i><i>.</i><i>.</i></span
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 1: TIÊU ĐỀ CHÍNH ================= -->
+    <div class="page active" id="page-home" data-page="home">
+      <div class="stage st-home" aria-hidden="true">
+        <div class="st-top"></div>
+        <div class="st-bot"></div>
+      </div>
+      <div class="page-body">
+        <div class="col">
+          <header class="hero">
+            <div class="bears">
+              <span class="bear-wrap">
+                <button
+                  class="bear"
+                  id="bear"
+                  type="button"
+                  aria-label="Chạm để đổi ảnh"
+                >
+                  <img
+                    decoding="async"
+                    id="bearImg"
+                    src="img/socute.webp"
+                    alt="socute"
+                    width="115"
+                    height="140"
+                  />
+                  <img
+                    decoding="async"
+                    class="bear-mark"
+                    src="img/icon-spark.webp"
+                    alt=""
+                    aria-hidden="true"
+                    draggable="false"
+                  />
+                </button>
+              </span>
+            </div>
+            <h1>Chúc mừng 20/10!</h1>
+            <div class="name">Ngọc Trâm</div>
+            <p>Trâm có đáng iu hông? Trâm có đáng iu đáng iu.</p>
+            <button class="btn" id="start">TramTram là MiauMiau</button>
+          </header>
+          <footer>©Only for you NgocTram</footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 2: TRÂM THÍCH GÌ NÀ (dùng chung nền với trang chính) ================= -->
+    <div class="page" id="page-likes" data-page="likes">
+      <div class="stage st-home" aria-hidden="true">
+        <div class="st-top"></div>
+        <div class="st-bot"></div>
+      </div>
+      <div class="page-body">
+        <div class="col pg">
+          <h2>TramTram</h2>
+          <p class="sub">Trâm muốn chọn gì trước thì chạm vào đó nhé!</p>
+          <div class="likes">
+            <a class="like" href="#tarot"
+              ><span class="like-e"
+                ><img
+                  decoding="async"
+                  src="img/icon-tarot.webp"
+                  alt=""
+                  draggable="false" /></span
+              ><b>Bói Tarot</b><small>Thú vị lắm nè</small></a
+            >
+            <a class="like" href="#gifts"
+              ><span class="like-e"
+                ><img
+                  decoding="async"
+                  src="img/icon-gift.webp"
+                  alt=""
+                  draggable="false" /></span
+              ><b>Mở quà MeoMeo</b
+              ><small>Quà nhưng vẫn phải trả lời câu hỏi</small></a
+            >
+            <a class="like" href="#letter"
+              ><span class="like-e"
+                ><img
+                  decoding="async"
+                  src="img/icon-letter.webp"
+                  alt=""
+                  draggable="false" /></span
+              ><b>Bức thư</b><small>Bí mật</small></a
+            >
+            <!-- Mục "Xem pháo hoa": bỏ ảnh icon vào img/icon-fireworks.webp là tự hiện (chưa có ảnh thì hiện 🎆) -->
+            <a class="like" href="#fireworks"
+              ><span class="like-e"
+                ><img
+                  decoding="async"
+                  src="img/icon-fireworks.webp"
+                  alt=""
+                  draggable="false"
+                  onerror="this.parentNode.textContent = '🎆'" /></span
+              ><b>Xem pháo hoa</b><small>Cái này hay nè</small></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 3: BÓI BÀI TAROT ================= -->
+    <div class="page" id="page-tarot" data-page="tarot">
+      <div class="stage" aria-hidden="true">
+        <div
+          class="st-fill"
+          style="background-image: url(img/bg/tarot-full.jpg)"
+        ></div>
+        <div class="st-frame">
+          <div class="st-mid"></div>
+          <div class="st-top"></div>
+          <div class="st-bot"></div>
+        </div>
+      </div>
+      <div class="page-body" id="tarotPage">
+        <div class="col pg">
+          <h2>Bói Tarot</h2>
+          <p class="sub" id="tarotSub">Chỉ được rút một lá thôi nhé!</p>
+        </div>
+        <div class="deck-wrap" id="deckWrap">
+          <div
+            class="deck"
+            id="deck"
+            role="group"
+            aria-label="Bộ bài Tarot, chạm để xòe bài"
+            tabindex="0"
+          >
+            <div class="deck-inner" id="deckInner"></div>
+          </div>
+          <p class="deck-hint" id="deckHint">Chạm vào bộ bài để trải ra</p>
+        </div>
+        <div class="col">
+          <div class="tarot-result hidden" id="tarotResult">
+            <div class="tr-card" id="trCard"></div>
+            <h3 id="trName"></h3>
+            <p class="tr-sub" id="trSub"></p>
+            <button class="btn" id="trAgain" type="button">
+              Xem lại lời bói
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 4: QUÀ ================= -->
+    <div class="page" id="page-gifts" data-page="gifts">
+      <div class="stage" aria-hidden="true">
+        <div
+          class="st-fill"
+          style="background-image: url(img/bg/gifts-full.jpg)"
+        ></div>
+        <div class="st-frame">
+          <div class="st-mid"></div>
+          <div class="st-top"></div>
+          <div class="st-bot"></div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="col pg">
+          <h2>Những hộp MeowMeow</h2>
+          <p class="sub">Siu nhìu quà lun nè</p>
+          <div class="shop" id="shop"></div>
+          <div class="reply" id="reply">Trả lời câu hỏi để mở nha!</div>
+          <div class="basket" id="basket" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 5: BỨC THƯ ================= -->
+    <div class="page" id="page-letter" data-page="letter">
+      <div class="stage" aria-hidden="true">
+        <div
+          class="st-fill"
+          style="background-image: url(img/bg/letter-full.jpg)"
+        ></div>
+        <div class="st-frame">
+          <div class="st-mid"></div>
+          <div class="st-top"></div>
+          <div class="st-bot"></div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="col pg">
+          <h2>Thư gửi Ngọc Trâm</h2>
+          <p class="sub">&nbsp;</p>
+          <div class="mail" id="mail">
+            <button
+              class="envelope"
+              id="envelope"
+              type="button"
+              aria-label="Bức thư gửi Trâm, bấm để mở"
+              aria-expanded="false"
+            >
+              <svg viewBox="0 0 300 200" aria-hidden="true" focusable="false">
+                <rect
+                  class="e-back"
+                  x="1.5"
+                  y="1.5"
+                  width="297"
+                  height="197"
+                  rx="8"
+                />
+                <polygon
+                  class="e-flapopen"
+                  points="1.5,1.5 298.5,1.5 150,-96"
+                />
+                <g class="e-paper">
+                  <rect x="24" y="12" width="252" height="176" rx="4" />
+                  <path
+                    class="e-lines"
+                    d="M44 48h212M44 72h212M44 96h212M44 120h212M44 144h212"
+                  />
+                  <path class="e-margin" d="M38 12v176" />
+                </g>
+                <polygon
+                  class="e-front"
+                  points="1.5,1.5 150,108 298.5,1.5 298.5,198.5 1.5,198.5"
+                />
+                <polygon class="e-flap" points="1.5,1.5 298.5,1.5 150,110" />
+              </svg>
+              <span class="seal" id="envSeal" aria-hidden="true"
+                ><img
+                  decoding="async"
+                  class="seal-heart"
+                  src="img/icon-heart.webp"
+                  alt=""
+                  draggable="false"
+              /></span>
+            </button>
+            <p
+              class="mail-hint"
+              id="mailHint"
+              role="status"
+              aria-live="polite"
+            ></p>
+            <article
+              class="paper hidden"
+              id="paper"
+              aria-label="Thư gửi Ngọc Trâm"
+            >
+              <h3>Gửi Ngọc Trâm,</h3>
+              <p>
+                Hôm nay là 20/10. Và tui vẫn tồi ha! Vẫn không tặng Trâm được
+                quà nào từ tế nhờ, nhưng tui mong bà sẽ thích những thứ tui làm
+                cho bà.
+              </p>
+              <p>
+                Và tui chúc bà luôn xinh đẹp, vui vẻ, khỏe mạnh và có thật nhiều
+                niềm vui trong cuộc sống. Tui biết bà đang vất vả, nhưng tui tin
+                bà sẽ vượt qua được hết. Và tui cũng mong năm nào bà cũng nhận
+                được nhiều quà, nhiều lời chúc tốt đẹp.
+              </p>
+              <p>
+                Dẫu sao thì... Chúc Ngọc Trâm một ngày 20/10 thật hạnh phúc!
+
+                <span class="em"></span>
+              </p>
+              <p class="sign">mh<span class="em"></span></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 6: XEM PHÁO HOA ================= -->
+    <div class="page" id="page-fireworks" data-page="fireworks">
+      <div class="page-body fw-body">
+        <div class="fw-wrap">
+          <!-- cửa sổ phát video: màn chiếu luôn đúng tỉ lệ 16:9 nên video khớp khít trên mọi thiết bị -->
+          <section class="fw-win" aria-label="Xem pháo hoa">
+            <div class="fw-title">
+              <svg class="fw-heart" viewBox="0 0 7 6" aria-hidden="true">
+                <path
+                  d="M1 0h2v1h1V0h2v1H7v2H6v1H5v1H4v1H3V5H2V4H1V3H0V1h1z"
+                  fill="#ffd6df"
+                  stroke="#e0a0b0"
+                  stroke-width=".35"
+                  stroke-linejoin="round"
+                /></svg
+              ><span class="fw-now">NOW PLAYING...</span>
+            </div>
+            <div class="fw-player" id="fwPlayer" tabindex="0">
+              <div class="fw-screen" id="fwScreen">
+                <video
+                  id="fwVideo"
+                  src="video/phao-hoa-xem.mp4"
+                  poster="video/phao-hoa-xem.jpg"
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <button
+                  class="fw-play"
+                  id="fwPlay"
+                  type="button"
+                  aria-label="Phát video pháo hoa"
+                >
+                  <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true">
+                    <polygon
+                      points="8.2,5.6 8.2,18.4 19.4,12"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="fw-ctrl">
+                <input
+                  class="fw-range fw-seek"
+                  id="fwSeek"
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="0"
+                  aria-label="Tua video"
+                />
+                <div class="fw-row">
+                  <button
+                    class="fw-btn"
+                    id="fwToggle"
+                    type="button"
+                    aria-label="Phát hoặc tạm dừng"
+                  >
+                    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true">
+                      <polygon
+                        points="8.2,5.6 8.2,18.4 19.4,12"
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      /></svg
+                    ><svg
+                      class="i-pause"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <rect x="6.5" y="5" width="4" height="14" rx="1.2" />
+                      <rect x="13.5" y="5" width="4" height="14" rx="1.2" />
+                    </svg>
+                  </button>
+                  <span class="fw-time" id="fwTime">0:00 / 0:00</span>
+                  <span class="fw-sp"></span>
+                  <button
+                    class="fw-btn"
+                    id="fwMute"
+                    type="button"
+                    aria-label="Bật hoặc tắt tiếng"
+                  >
+                    <svg class="i-vol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 9.5v5h3.6L12.5 19V5L7.6 9.5H4z" />
+                      <path
+                        d="M15.5 8.6a4.8 4.8 0 0 1 0 6.8M18.2 6a8.4 8.4 0 0 1 0 12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      /></svg
+                    ><svg class="i-mute" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 9.5v5h3.6L12.5 19V5L7.6 9.5H4z" />
+                      <path
+                        d="M16 9.5l5 5M21 9.5l-5 5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+                  <input
+                    class="fw-range fw-vol"
+                    id="fwVol"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="100"
+                    aria-label="Âm lượng"
+                  />
+                  <button
+                    class="fw-btn"
+                    id="fwZoom"
+                    type="button"
+                    aria-label="Phóng to màn hình"
+                  >
+                    <svg
+                      class="i-expand"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      /></svg
+                    ><svg
+                      class="i-shrink"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9 4v5H4M15 4v5h5M20 15h-5v5M4 15h5v5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- 3 ô thả cảm xúc: mỗi ô gồm icon + chữ.
+           Cách thêm: đặt ảnh icon vào img/fw-1.webp, fw-2.webp, fw-3.webp (có sẵn là tự hiện) và sửa chữ trong .fw-lb.
+           Bấm vào ô thì icon bay lên rồi biến mất (giống thả cảm xúc khi xem story). Chưa có ảnh thì dùng emoji ở data-emoji. -->
+          <div class="fw-cells">
+            <button class="fw-cell" type="button" data-fw="1" data-emoji="❤️">
+              <span class="fw-cbody"
+                ><img
+                  decoding="async"
+                  class="fw-ic"
+                  src="img/fw-1.webp"
+                  alt=""
+                  draggable="false"
+                  onerror="this.style.display = 'none'"
+                /><span class="fw-lb">Iu iu</span></span
+              >
+            </button>
+            <button class="fw-cell" type="button" data-fw="2" data-emoji="😍">
+              <span class="fw-cbody"
+                ><img
+                  decoding="async"
+                  class="fw-ic"
+                  src="img/fw-2.webp"
+                  alt=""
+                  draggable="false"
+                  onerror="this.style.display = 'none'"
+                /><span class="fw-lb">Nhớ nhớ</span></span
+              >
+            </button>
+            <button class="fw-cell" type="button" data-fw="3" data-emoji="🎆">
+              <span class="fw-cbody"
+                ><img
+                  decoding="async"
+                  class="fw-ic"
+                  src="img/fw-3.webp"
+                  alt=""
+                  draggable="false"
+                  onerror="this.style.display = 'none'"
+                /><span class="fw-lb">Woaa</span></span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TRANG 7: KẾT THÚC ================= -->
+    <div class="page" id="page-end" data-page="end">
+      <div class="end-stage stage" aria-hidden="true">
+        <div class="end-top"></div>
+        <div class="end-bot"></div>
+      </div>
+      <svg
+        width="0"
+        height="0"
+        style="position: absolute"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <symbol id="pxHeart" viewBox="0 0 7 6">
+          <path d="M1 0h2v1h1V0h2v1H7v2H6v1H5v1H4v1H3V5H2V4H1V3H0V1h1z" />
+        </symbol>
+      </svg>
+      <div class="page-body">
+        <button
+          class="end-kitty"
+          id="endKitty"
+          type="button"
+          aria-label="Chạm vào mèo nè"
+        >
+          <span class="end-shadow" aria-hidden="true"></span>
+          <img
+            decoding="async"
+            class="end-cat"
+            src="img/kitty.webp"
+            alt=""
+            draggable="false"
+          />
+          <svg
+            class="end-heart"
+            style="--x: 6%; --y: 30%; --d: 0s; --dx: -14%; --r: -14deg"
+            viewBox="0 0 7 6"
+            aria-hidden="true"
+          >
+            <use href="#pxHeart" />
+          </svg>
+          <svg
+            class="end-heart"
+            style="
+              --x: 88%;
+              --y: 22%;
+              --d: 0.7s;
+              --dx: 12%;
+              --r: 12deg;
+              --hf: #f7aebd;
+            "
+            viewBox="0 0 7 6"
+            aria-hidden="true"
+          >
+            <use href="#pxHeart" />
+          </svg>
+          <svg
+            class="end-heart"
+            style="--x: 92%; --y: 62%; --d: 1.4s; --dx: 10%; --r: 10deg"
+            viewBox="0 0 7 6"
+            aria-hidden="true"
+          >
+            <use href="#pxHeart" />
+          </svg>
+          <svg
+            class="end-heart"
+            style="
+              --x: 0%;
+              --y: 66%;
+              --d: 2.1s;
+              --dx: -10%;
+              --r: -10deg;
+              --hf: #f7aebd;
+            "
+            viewBox="0 0 7 6"
+            aria-hidden="true"
+          >
+            <use href="#pxHeart" />
+          </svg>
+          <svg
+            class="end-heart"
+            style="--x: 46%; --y: -4%; --d: 1.05s; --dx: 4%; --r: 6deg"
+            viewBox="0 0 7 6"
+            aria-hidden="true"
+          >
+            <use href="#pxHeart" />
+          </svg>
+        </button>
+        <p class="end-text" id="endText">Cảm ơn Trâm đã coi</p>
+      </div>
+    </div>
+
+    <!-- ================= NÚT CHUYỂN TRANG ================= -->
+    <nav class="pager" aria-label="Chuyển trang">
+      <button
+        class="nav-btn nav-back off"
+        id="navBack"
+        type="button"
+        aria-label="Quay lại trang trước"
+      >
+        <img
+          decoding="async"
+          src="img/icon-paw.webp"
+          alt=""
+          draggable="false"
+        />
+      </button>
+      <div class="dots" id="navDots" aria-hidden="true"></div>
+      <button
+        class="nav-btn nav-next"
+        id="navNext"
+        type="button"
+        aria-label="Sang trang tiếp theo"
+      >
+        <img
+          decoding="async"
+          src="img/icon-paw.webp"
+          alt=""
+          draggable="false"
+        />
+      </button>
+    </nav>
+
+    <!-- LÁ BÀI TAROT HIỆN GIỮA MÀN HÌNH -->
+    <div
+      class="tview hidden"
+      id="tview"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tvName"
+    >
+      <div class="tv-box">
+        <div class="tv-card" id="tvCard">
+          <div class="tv-inner" id="tvInner">
+            <div class="tv-face tv-back"><span class="tback"></span></div>
+            <div class="tv-face tv-front" id="tvFront"></div>
+          </div>
+        </div>
+        <div class="tv-text" id="tvText">
+          <h3 id="tvName"></h3>
+          <p class="tv-en" id="tvEn"></p>
+          <p class="tv-sub" id="tvSub"></p>
+          <p class="tv-read" id="tvRead"></p>
+          <p class="tv-note">Chỉ là bói vui thui!</p>
+          <button class="btn" id="tvClose" type="button">Cảm ơn nha!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUÀ PHÓNG TO GIỮA MÀN HÌNH -->
+    <div
+      class="viewer hidden"
+      id="viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="viewerName"
+    >
+      <div class="viewer-card">
+        <img decoding="async" id="viewerImg" alt="" draggable="false" />
+        <div class="viewer-text">
+          <h3 id="viewerName"></h3>
+          <p id="viewerCap"></p>
+          <button class="btn" id="viewerClose" type="button">
+            Cảm ơn nha!
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CÂU ĐỐ MỞ HỘP QUÀ -->
+    <div
+      class="quiz hidden"
+      id="quiz"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quizTitle"
+    >
+      <div class="quiz-card">
+        <button class="quiz-x" id="quizX" type="button" aria-label="Đóng">
+          ✕
+        </button>
+        <div class="quiz-emoji" aria-hidden="true">
+          <img decoding="async" class="quiz-cat" src="img/meow.webp" alt="" />
+        </div>
+        <h3 id="quizTitle">Hộp Meow</h3>
+        <p class="quiz-q" id="quizQ"></p>
+        <form id="quizForm" autocomplete="off">
+          <input
+            id="quizInput"
+            type="text"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="done"
+            aria-label="Câu trả lời"
+          />
+          <div class="choices" id="quizChoices"></div>
+          <button class="btn" type="submit" id="quizSubmit">Tiếp tục</button>
+        </form>
+        <p class="quiz-msg" id="quizMsg" role="alert"></p>
+        <div class="quiz-win hidden" id="quizWin">
+          <p id="quizWinText"></p>
+          <p class="quiz-note" id="quizNote"></p>
+          <button class="btn" id="quizOpen" type="button">Mở hộp</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NHẠC NỀN: music/bgm.mp3 (đã cân âm chuẩn nhạc nền). Không tự phát khi vào trang, chỉ phát 1 lần, không lặp -->
+    <audio id="bgm" src="music/bgm.mp3" preload="auto"></audio>
+    <button
+      class="music"
+      id="musicBtn"
+      aria-label="Bật nhạc"
+      aria-pressed="false"
+      title="Bật/tắt nhạc"
+    >
+      <img decoding="async" src="img/icon-note.webp" alt="" draggable="false" />
+    </button>
+  </body>
+</html>

@@ -17,7 +17,7 @@
       "Chàng ngốc",
       "Khởi đầu · Tự do · Dũng cảm",
       "🃏",
-      "Trâm sắp bước sang một chặng mới, và lá bài này bảo rằng cứ nhẹ nhàng mà đi. Không cần chắc chắn hết mọi thứ mới dám bước, Trâm chỉ cần dũng cảm một chút thôi, phần còn lại có mình đứng phía sau cổ vũ nè.",
+      "Trâm sắp bước sang một chặng mới, và lá bài này bảo rằng cứ nhẹ nhàng mà đi. Không cần chắc chắn hết mọi thứ mới dám bước, Trâm chỉ cần dũng cảm một chút thôi.",
     ],
     [
       "The Magician",
